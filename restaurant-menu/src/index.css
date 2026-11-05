@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply font-sans antialiased bg-paper text-ink-900; }
+  :focus-visible { outline: 2px solid #e59a1e; outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+}
+
+@layer components {
+  /* Admin form + button styles (deliberately different from the customer site) */
+  .a-input { @apply w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-200 disabled:bg-slate-100; }
+  .a-label { @apply mb-1 block text-sm font-medium text-slate-700; }
+  .a-err { @apply mt-1 text-xs text-red-600; }
+  .a-btn { @apply inline-flex items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition disabled:cursor-not-allowed disabled:opacity-60; }
+  .a-btn-primary { @apply a-btn bg-indigo-600 text-white hover:bg-indigo-700; }
+  .a-btn-ghost { @apply a-btn border border-slate-300 bg-white text-slate-700 hover:bg-slate-50; }
+  .a-btn-danger { @apply a-btn bg-red-600 text-white hover:bg-red-700; }
+  .a-card { @apply rounded-lg border border-slate-200 bg-white shadow-sm; }
+}
+
+.hide-scrollbar { scrollbar-width: none; }
+.hide-scrollbar::-webkit-scrollbar { display: none; }
